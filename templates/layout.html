@@ -13,11 +13,12 @@
     </head>
     <body>
         {% if (display_button) %}
-            <div class="main" style="display: none;">
+            <div class="main">
+                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                 <div class="alert alert-danger location-permission-denied" role="alert">Vous devez accepter de donner votre position en modifiant les paramètres de sécurité de votre navigateur.</div>
                 <div class="alert alert-warning location-not-found" role="alert">Votre position est introuvable pour le moment</div>
                 <div class="desc">
-                    <p>Si toi aussi tu es Charlie, rejoins nous en cliquant sur ce boutton:</p>
+                    <p>Si toi aussi tu es Charlie, rejoins-nous en cliquant sur ce bouton:</p>
                     <button type="button" class="btn btn-sm btn-default addACharlie">
                       <img src="/img/charlie.jpg" />
                       Je suis Charlie.

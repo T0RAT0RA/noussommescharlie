@@ -8,9 +8,9 @@ function initializeMap() {
         lat: 46.71109,
         lng: 1.7191036
       },
+      minZoom   : 3,
       zoom      : 6,
-      mapTypeId : google.maps.MapTypeId.SATELLITE,
-      disableDefaultUI: true
+      mapTypeId : google.maps.MapTypeId.HYBRID
   })
 
   //Add clustered markers
@@ -28,6 +28,11 @@ function initializeMap() {
       //Temporary disable clustering to have more visual impact.
       //var markerCluster = new MarkerClusterer(map, markers);
   });
+
+  //If geolocation not available, no add button
+  if (navigator.geolocation) {
+      $('.main').slideDown();
+  }
 }
 
 function showError(error) {
@@ -65,13 +70,13 @@ function addPosition(position) {
     });
 }
 
+$('.main .glyphicon-remove').on('click', function(){
+    $('.main').slideUp();
+    return false;
+});
+
 $('.addACharlie').on('click', function(){
     navigator.geolocation.getCurrentPosition(addPosition, showError);
 });
-
-//If geolocation not available, no add button
-if (navigator.geolocation) {
-    $('.main').show();
-}
 
 google.maps.event.addDomListener(window, 'load', initializeMap);

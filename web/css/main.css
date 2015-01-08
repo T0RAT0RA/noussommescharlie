@@ -9,6 +9,12 @@ html, body, #charlie {
 .main {
     text-align: center;
     margin: 20px;
+    display: none;
+}
+
+.main .glyphicon-remove{
+    float: right;
+    cursor: pointer;
 }
 
 .location-permission-denied, .location-not-found {
