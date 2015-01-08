@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Nous sommes Charlie.</title>
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+        <link href="{{ app.request.basepath }}/css/main.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        {% if (display_button) %}
+            <div class="main" style="display: none;">
+                <div class="alert alert-danger location-permission-denied" role="alert">Vous devez accepter de donner votre position en modifiant les paramètres de sécurité de votre navigateur.</div>
+                <div class="alert alert-warning location-not-found" role="alert">Votre position est introuvable pour le moment</div>
+                <div class="desc">
+                    <p>Si toi aussi tu es Charlie, rejoins nous en cliquant sur ce boutton:</p>
+                    <button type="button" class="btn btn-sm btn-default addACharlie">
+                      <img src="/img/charlie.jpg" />
+                      Je suis Charlie.
+                    </button>
+                </div>
+            </div>
+        {% endif %}
+
+        <div id="charlie"></div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBZ4wjmEm-6ZlM-BpF9RhW2SgRyby4O7VM"></script>
+        <script src="/js/markerclusterer_compiled.js"></script>
+        <script src="/js/main.js"></script>
+
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'UA-58358427-1', 'auto');
+          ga('send', 'pageview');
+
+        </script>
+    </body>
+</html>
