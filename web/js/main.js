@@ -10,7 +10,7 @@ function initializeMap() {
       },
       minZoom   : 3,
       zoom      : 6,
-      mapTypeId : google.maps.MapTypeId.HYBRID
+      mapTypeId : google.maps.MapTypeId.SATELLITE
   })
 
   //Add clustered markers
@@ -26,7 +26,19 @@ function initializeMap() {
           markers.push(marker);
       }
       //Temporary disable clustering to have more visual impact.
-      //var markerCluster = new MarkerClusterer(map, markers);
+      var markerCluster = new MarkerClusterer(map, markers, {
+              styles: [
+                {
+                  url: '/img/charlie_count.jpg',
+                  height: 40,
+                  width: 40,
+                  textColor: '#FFF',
+                  anchorText: [-14, -5],
+                  textSize: 13,
+                  title: 'Nous sommes Charlie.'
+                }
+              ]
+          });
   });
 
   //If geolocation not available, no add button
@@ -69,11 +81,6 @@ function addPosition(position) {
         }
     });
 }
-
-$('.main .glyphicon-remove').on('click', function(){
-    $('.main').slideUp();
-    return false;
-});
 
 $('.addACharlie').on('click', function(){
     navigator.geolocation.getCurrentPosition(addPosition, showError);
