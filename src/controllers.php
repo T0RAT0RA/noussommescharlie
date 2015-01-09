@@ -9,7 +9,12 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Entity\Charlie;
 
 $app->get('/', function () use ($app) {
+    $em     = $app['orm.em'];
+    $query  = $em->createQuery("SELECT COUNT(c.id) FROM Entity\Charlie c");
+    $total_charlies = $query->getSingleScalarResult();
+
     return $app['twig']->render('index.html', array(
+        'total_charlies' => $total_charlies,
         'display_button' => $app['session']->get('positionAdded')? false : true,
     ));
 });

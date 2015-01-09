@@ -35,3 +35,8 @@ html, body, #charlie {
     background: #000;
     color: #FFF;
 }
+
+.total {
+    text-align: center;
+    margin-left: 30%;
+}
