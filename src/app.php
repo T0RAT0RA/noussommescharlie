@@ -23,7 +23,7 @@ $app['twig'] = $app->share($app->extend('twig', function ($twig, $app) {
     return $twig;
 }));
 
-$app->register(new YamlConfigServiceProvider(__DIR__.'/../config/database.yml'));
+$app->register(new YamlConfigServiceProvider(__DIR__.'/../config/config.yml'));
 $app->register(new DoctrineServiceProvider, array(
     'db.options' => array(
         'driver'    => 'pdo_mysql',

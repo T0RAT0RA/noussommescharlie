@@ -1,0 +1,14 @@
+database:
+    host    : localhost
+    dbname  : noussommescharlie
+    user    :
+    password:
+
+facebook:
+    appId:
+
+google:
+    maps:
+        key:
+    analytics:
+        appId:
