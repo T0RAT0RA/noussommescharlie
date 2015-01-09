@@ -4,6 +4,7 @@ html, body, #charlie {
     padding: 0;
     background-color: #000;
     color: #FFF;
+    overflow: hidden;
 }
 
 .main {
@@ -19,4 +20,19 @@ html, body, #charlie {
 
 .location-permission-denied, .location-not-found {
     display: none;
+}
+
+.sharebar {
+    position: fixed;
+    text-align: right;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 30px;
+    margin: 0;
+    padding: 6px;
+    z-index: 2;
+    background: #000;
+    color: #FFF;
 }
