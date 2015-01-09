@@ -27,6 +27,8 @@ function initializeMap() {
       }
       //Temporary disable clustering to have more visual impact.
       var markerCluster = new MarkerClusterer(map, markers, {
+              averageCenter: true,
+              minimumClusterSize: 20,
               styles: [
                 {
                   url: '/img/charlie_count.jpg',
