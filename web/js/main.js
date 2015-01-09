@@ -23,6 +23,7 @@ function initializeMap() {
                 title   : marker_title + ' (' + charlies[i].created_at + ')',
                 icon    : { url: marker_img }
             });
+          addMarkerOnClick(marker);
           markers.push(marker);
       }
       //Temporary disable clustering to have more visual impact.
@@ -47,6 +48,15 @@ function initializeMap() {
   if (navigator.geolocation) {
       $('.main').slideDown();
   }
+}
+
+function addMarkerOnClick(marker) {
+    google.maps.event.addListener(marker, 'click', function() {
+        if (map.getZoom() <= 16) {
+            map.setZoom(16);
+        }
+        map.setCenter(marker.getPosition());
+    });
 }
 
 function showError(error) {
